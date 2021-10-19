@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/quotes', [QuoteController::class, 'index']);
 
+Route::post('/save', [QuoteController::class, 'store']);
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

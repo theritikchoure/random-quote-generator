@@ -37,7 +37,11 @@ class QuoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $quote = new Quote();
+        $quote->quote = $request->quote;
+        $quote->save();
+
+        return response()->json(['success' => 'quote successfully added'], 200);
     }
 
     /**
