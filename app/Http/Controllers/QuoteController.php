@@ -37,6 +37,10 @@ class QuoteController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'quote' => 'required|unique:quotes',
+        ]);
+        
         $quote = new Quote();
         $quote->quote = $request->quote;
         $quote->save();
